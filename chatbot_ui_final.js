@@ -467,7 +467,8 @@
         {
             webhook: { ...defaultConfig.webhook, ...window.ChatWidgetConfig.webhook },
             branding: { ...defaultConfig.branding, ...window.ChatWidgetConfig.branding },
-            style: { ...defaultConfig.style, ...window.ChatWidgetConfig.style }
+            style: { ...defaultConfig.style, ...window.ChatWidgetConfig.style },
+            autoStart: window.ChatWidgetConfig.autoStart || false
         } : defaultConfig;
 
     // Prevent multiple initializations
@@ -864,6 +865,11 @@
     
     toggleButton.addEventListener('click', () => {
         chatContainer.classList.toggle('open');
+        
+        // If autoStart is enabled and chat interface is not active, start conversation immediately
+        if (config.autoStart && chatContainer.classList.contains('open') && !chatInterface.classList.contains('active')) {
+            startNewConversation();
+        }
     });
 
     // Add close button handlers
