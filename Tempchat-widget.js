@@ -499,4 +499,5 @@
             chatContainer.classList.remove('open');
         });
     });
+
 })();
