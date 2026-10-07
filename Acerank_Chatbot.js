@@ -297,7 +297,7 @@
             responseTimeText: '',
             poweredBy: {
                 text: 'Powered by Novo Automations',
-                link: 'www.novoautomations.com'
+                link: 'https://www.novoautomations.com'
             }
         },
         style: {
